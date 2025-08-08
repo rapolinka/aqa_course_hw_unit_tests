@@ -13,49 +13,37 @@
   const myPizzasT2 = ['Peperoni', 'Caprichosa', 'Diablo', '4 cheeses', 'hawai'];
 */
 
-let resultUnique = [];
+const resultUnique = [];
 let resultNull = null;
 
-const competitorPizzas = ['Peperoni', 'Caprichosa', 'Diablo', '4 cheeses', 'hawai'];
+const competitorPizzas = ['Peperoni', 'Caprichosa', 'Diablo', '4 cheeses', 'hawai']
 const myPizzasT1 = ['Peperoni', 'Margherita', 'Diablo', 'Vegetarian'];
 const myPizzasT2 = ['Peperoni', 'Caprichosa', 'Diablo', '4 cheeses', 'hawai'];
 
-const competitorPizzaInLowerCase = [];
-for(let i = 0; i < competitorPizzas.length; i++){
-  competitorPizzaInLowerCase.push(competitorPizzas[i].toLowerCase());
+const allPizzas = [...myPizzasT1, ...myPizzasT2];
+
+
+const competitorPizza = [];
+for (const competitor of competitorPizzas) {
+  competitorPizza.push(competitor.toLowerCase());
 }
 
-const myPizzaInLowerCase = [];
-for(let i = 0; i < myPizzasT1.length; i++){
-  myPizzaInLowerCase.push(myPizzasT1[i].toLowerCase());
+
+const myPizas = [];
+for (const allMyPizza of allPizzas) {
+  myPizas.push(allMyPizza.toLowerCase());
 }
 
 
-for (let i = 0; i < myPizzaInLowerCase.length; i++) {
-  let foundUnique = false;
-
-  for (let j = 0; j < competitorPizzaInLowerCase.length; j++) {
-    if (myPizzaInLowerCase[i] === competitorPizzaInLowerCase[j]) {
-      foundUnique = true;
-      break;
-    }
-  }
-
-  if (!foundUnique) {
-    resultUnique.push(myPizzasT1[i]); 
+for (let i = 0; i < myPizas.length; i++) {
+  if (!competitorPizza.includes(myPizas[i])) {
+    resultUnique.push(allPizzas[i]);
   }
 }
-
 if (resultUnique.length === 0) {
-  resultNull = null;
-  resultUnique = null;
+  console.log(resultNull);
+} else {
+  console.log(resultUnique);
 }
-
-
-console.log(resultUnique);
-console.log(resultNull);     
-
-
-
 
 export { resultNull, resultUnique };
