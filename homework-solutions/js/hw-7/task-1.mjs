@@ -20,7 +20,7 @@ console.log(mergeArrays([1, 2], [34, 56, 65], [6, 7, 8, 9]));
 
 function devideBy(sentence) {
   if (typeof sentence !== "string" ) {
-    return `${sentence} uses incorrect format`;
+    return "";
   }
 
   const trimmed = sentence.trim();

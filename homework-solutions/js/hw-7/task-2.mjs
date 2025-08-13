@@ -56,4 +56,3 @@ function findLongestWords(sentence) {
 console.log(findLongestWords(" gh ghttg"));
 
 export { isPalindrom, findLongestWords };
-
