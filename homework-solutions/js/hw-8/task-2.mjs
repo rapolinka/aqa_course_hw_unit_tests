@@ -28,7 +28,7 @@ function countVowels(str) {
 }
 
 function sortedByVowels(array) {
-  if (array.length === 0) return [];
+  if (!Array.isArray(array)) throw new Error("It is not array");
   return [...array].sort((a, b) => countVowels(a) - countVowels(b));
 }
 
