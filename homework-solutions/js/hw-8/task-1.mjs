@@ -28,7 +28,7 @@ const filter = numbers.filter((element, index, array) => element > array[index -
 
 const find = numbers.find((element, index) => element === index);
 
-const sort = numbers.sort((a, b) => a - b);
+const sort = [...numbers.sort]((a, b) => a - b);
 console.log(sort);
 
 const reduce = numbers.reduce((result, element) => {
