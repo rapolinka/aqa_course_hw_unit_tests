@@ -8,24 +8,36 @@
    (Реализовать 2мя способами: через оператор "in" (1st) и "Object.hasOwn()" (2nd))
 */
 
-const character = { name: 'Barney', age: 36, gender: 'male', isQa: true };
+const character = {
+  name: 'Barney',
+  age: 36,
+  gender: 'male',
+  isQa: true
+};
 
 // 1
-let keyWithFourChars;
+const keyWithFourChars = Object.keys(character).filter(key => key.length === 4);
+console.log(keyWithFourChars);
 
 // 2
-let stringValues;
+const stringValues = Object.values(character).filter(value => typeof value === "string");
+console.log(stringValues);
 
 // 3
 /* Do not touch this part */
 const logSpy = jest.spyOn(console, 'log');
-// ---
 
-// Ваш код
-let keyValuePairs;
+const keyValuePairs = Object.entries(character);
+for(const [key, value] of keyValuePairs){
+  console.log(`key = ${key}, value = ${value}`);
+}
+console.log(keyValuePairs);
 
-// 4
-let hasSalaryKey1stOption;
-let hasSalaryKey2ndOption;
+const hasSalaryKey1stOption = 'salary' in character;
+console.log(hasSalaryKey1stOption);
+
+const hasSalaryKey2ndOption = Object.hasOwn(character, "salary");
+console.log(hasSalaryKey2ndOption);
 
 export { keyWithFourChars, stringValues, hasSalaryKey1stOption, hasSalaryKey2ndOption, keyValuePairs, logSpy };
+
