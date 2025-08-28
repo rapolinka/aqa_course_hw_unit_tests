@@ -26,7 +26,7 @@ function getCharacter(name) {
     throw new Error("Incorrect data format");
   }
 
-  const infoByName = characters.filter(obj => obj.name === name)[0];
+  const infoByName = characters.find(obj => obj.name === name);
 
   if (!infoByName) return undefined;
 
@@ -42,13 +42,24 @@ function getCharactersByAge(minAge) {
 }
 
 function updateCharacter(name, newCharacter) {
+  if (typeof name !== "string") {
+    throw new Error("Incorrect data format");
+  }
+  if (!newCharacter || typeof newCharacter !== "object" || Array.isArray(newCharacter)) {
+    throw new Error("newCharacter must be an object");
+  }
+
   const character = getCharacter(name);
+  if (!character) {
+    throw new Error(`Can't find character with name ${name}`);
+  }
   Object.assign(character, newCharacter);
+  return character;
 }
 
 function removeCharacter(name) {
   const indexObject = characters.findIndex(obj => obj.name === name);
-  if (indexObject === -1){
+  if (indexObject === -1) {
     throw new Error("There is no such name in the list");
   }
   characters.splice(indexObject, 1);

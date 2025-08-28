@@ -28,12 +28,12 @@ console.log(stringValues);
 const logSpy = jest.spyOn(console, 'log');
 
 const keyValuePairs = Object.entries(character);
-for(const [key, value] of Object.entries(character)){
+for(const [key, value] of keyValuePairs){
   console.log(`key = ${key}, value = ${value}`);
 }
 console.log(keyValuePairs);
 
-const hasSalaryKey1stOption = Object.keys(character).includes(key => key === "salary");
+const hasSalaryKey1stOption = 'salary' in character;
 console.log(hasSalaryKey1stOption);
 
 const hasSalaryKey2ndOption = Object.hasOwn(character, "salary");
