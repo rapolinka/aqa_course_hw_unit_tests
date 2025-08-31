@@ -14,23 +14,55 @@ const characters = [
 ];
 
 function addCharacter(character) {
-  // Ваш код
+  if (!character || typeof character.name !== "string" || typeof character.age !== "number") {
+    throw new Error("Incorrect data format")
+  }
+  characters.push(character);
+  return character;
 }
 
 function getCharacter(name) {
-  // Ваш код
+  if (typeof name !== "string") {
+    throw new Error("Incorrect data format");
+  }
+
+  const infoByName = characters.find(obj => obj.name === name);
+
+  return infoByName;
 }
 
 function getCharactersByAge(minAge) {
-  // Ваш код
+  if (typeof minAge !== "number") {
+    throw new Error("Incorrect data format");
+  }
+
+  return characters.filter(obj => obj.age >= minAge);
 }
 
 function updateCharacter(name, newCharacter) {
-  // Ваш код
+  if (typeof name !== "string") {
+    throw new Error("Incorrect data format");
+  }
+  if (!newCharacter || typeof newCharacter !== "object" || Array.isArray(newCharacter)) {
+    throw new Error("newCharacter must be an object");
+  }
+
+  const character = getCharacter(name);
+  if (!character) {
+    throw new Error(`Can't find character with name ${name}`);
+  }
+  Object.assign(character, newCharacter);
+  return character;
 }
 
 function removeCharacter(name) {
-  // Ваш код
+  const indexObject = characters.findIndex(obj => obj.name === name);
+  if (indexObject === -1) {
+    throw new Error("There is no such name in the list");
+  }
+  characters.splice(indexObject, 1);
+  return characters;
 }
 
 export { characters, addCharacter, updateCharacter, getCharacter, getCharactersByAge, removeCharacter };
+
