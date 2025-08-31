@@ -28,8 +28,6 @@ function getCharacter(name) {
 
   const infoByName = characters.find(obj => obj.name === name);
 
-  if (!infoByName) return undefined;
-
   return infoByName;
 }
 
