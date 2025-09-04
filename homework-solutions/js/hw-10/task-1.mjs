@@ -32,7 +32,7 @@ const anotherQa = {
 };
 
 // Используйте bind с greetingWord "Hello"
-const bindResult = qa.getInfo.bind(anotherQa, "Hello")()
+const bindResult = qa.getInfo.bind(anotherQa) ("Hello")
 
 // Используйте call с greetingWord "Hi"
 const callResult = qa.getInfo.call(anotherQa, "Hi");
