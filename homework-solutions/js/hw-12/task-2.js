@@ -28,7 +28,7 @@ async function createTodo(todoBody) {
         console.log(error);
     }
     finally {
-        console.log('Complete all hw before the deadline.')
+        console.log('The function has been executed.')
     }
 }
 
