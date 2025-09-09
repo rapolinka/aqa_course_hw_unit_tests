@@ -1,12 +1,12 @@
 //TASK 1
 //Создайте функцию delayTwoSeconds, принимающую на вход коллбэк функцию, которая будет отрабатывать спустя 2 секунды после вызова delayTwoSeconds.
 function delayTwoSeconds(callback) {
-    setTimeout(callback, 1000);
+    setTimeout(callback, 2000);
 }
 
 console.log("Start...");
 delayTwoSeconds(() => {
-    console.log("Got it in 1 sec!");
+    console.log("Got it in 2 sec!");
 });
 
 //TASK 2

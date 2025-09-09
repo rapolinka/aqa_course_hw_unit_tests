@@ -25,7 +25,7 @@ async function createTodo(todoBody) {
         return body;
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
     finally {
         console.log('The function has been executed.')
