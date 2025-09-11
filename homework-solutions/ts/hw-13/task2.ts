@@ -10,15 +10,12 @@
 
 
 function validatePassword(password: string): boolean {
-  const chars = password.trim().split("");
+  const chars = password.trim();
   if (chars.length < 8) return false;
 
-const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const lower = "abcdefghijklmnopqrstuvwxyz";
-const digits = "0123456789";
-const hasUpper = chars.some(char => upper.includes(char));
-const hasLower = chars.some(char => lower.includes(char));
-const hasDigit = chars.some(char => digits.includes(char));
+const hasUpper =  /[A-Z]/.test(chars);
+const hasLower = /[a-z]/.test(chars);
+const hasDigit = /[0-9]/.test(chars);
   return hasUpper && hasLower && hasDigit;
 }
 
