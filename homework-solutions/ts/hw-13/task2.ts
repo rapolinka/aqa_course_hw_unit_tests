@@ -13,9 +13,9 @@ function validatePassword(password: string): boolean {
   const chars = password.trim();
   if (chars.length < 8) return false;
 
-const hasUpper =  /[A-Z]/.test(chars);
-const hasLower = /[a-z]/.test(chars);
-const hasDigit = /[0-9]/.test(chars);
+  const hasUpper = [...chars].some(ch => ch.toUpperCase() !== ch.toLowerCase() && ch === ch.toUpperCase());
+  const hasLower = [...chars].some(ch => ch.toUpperCase() !== ch.toLowerCase() && ch === ch.toLowerCase());
+  const hasDigit = /\d/.test(chars);
   return hasUpper && hasLower && hasDigit;
 }
 
