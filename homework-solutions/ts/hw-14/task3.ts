@@ -7,7 +7,7 @@ interface ISalary {
   name?: string;
   salary: number;
 }
-function getInfo<T extends ISalary>(...obj: T[]): number {
+function getInfo<T extends {salary: number}>(...obj: T[]): number {
   const salaryCheck = obj.map((person) => person.salary ?? 0).filter((salary) => salary > 0);
 
   if (salaryCheck.length === 0) {
