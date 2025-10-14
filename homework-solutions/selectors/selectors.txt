@@ -24,7 +24,7 @@ Xpath: //*[@multitag = "on"]
 
   7.Xpath/CSS: всех детей элемента ‘div’ с классом ‘content’ 
 CSS: div > .content
-Xpath: div/*[@class='content']
+Xpath: //div/*[@class='content']
 
   8.CSS: все элементы ‘span’ и  ‘button’ с классом ‘content’ 
 CSS: span.content, button.content
